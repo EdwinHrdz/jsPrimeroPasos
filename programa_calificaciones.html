@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #7ed36d; /* Color de fondo sólido */
+            /* Fondo con imagen */
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Programa de Calificaciones</title>
+</head>
+<body>
+    <h1>Programa de Calificaciones</h1>
+    <script>
+        // Solicitar al usuario la cantidad de alumnos
+        var cantidadAlumnos = parseInt(prompt("Ingrese la cantidad de alumnos:"));
+        
+        var sumaCalificaciones = 0;
+        
+        // Iterar sobre cada alumno
+        for (var i = 0; i < cantidadAlumnos; i++) {
+            // Solicitar el nombre del alumno
+            var nombreAlumno = prompt("Ingrese el nombre del alumno " + (i + 1) + ":");
+            
+            // Solicitar la calificación del alumno
+            var calificacion = parseFloat(prompt("Ingrese la calificación de " + nombreAlumno + " [de 1 - 10]:"));
+            
+            // Sumar las calificaciones para calcular el promedio
+            sumaCalificaciones += calificacion;
+            
+            // Determinar si aprobó o reprobó
+            var mensaje;
+            if (calificacion >= 7) {
+                mensaje = "Aprobado. ¡Bien hecho!";
+            } else {
+                mensaje = "Reprobado. Debes estudiar más.";
+            }
+            
+            // Mostrar el resultado para cada alumno
+            var mensajeFinal = nombreAlumno + " tiene una calificación de " + calificacion.toFixed(2) + ". " + mensaje;
+            console.log(mensajeFinal);
+            document.write("<p>" + mensajeFinal + "</p>");
+        }
+        
+        // Calcular el promedio general
+        var promedioGeneral = sumaCalificaciones / cantidadAlumnos;
+        console.log("El promedio general de los alumnos es: " + promedioGeneral.toFixed(2));
+        document.write("<p>El promedio general de los alumnos es: " + promedioGeneral.toFixed(2) + "</p>");
+    </script>
+    <button class="button" onclick="window.location.href='index.html'">Regresar a la Pagina Principal</button>
+    <button class="button" onclick="window.location.href='calculadora_imc.html'">Calculadora IMC</button>
+</body>
+</html>

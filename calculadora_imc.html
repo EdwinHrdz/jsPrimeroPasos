@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+            background-color: #7ed36d; /* Color de fondo sólido */
+            /* Fondo con imagen */
+            background-size: cover;
+            background-position: center;
+        }
+        h1 {
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <title>Calculadora IMC</title>
+</head>
+<body>
+    <h1>Calculadora IMC</h1>
+    <script>
+        // Solicitar al usuario que ingrese su nombre
+        var nombre = prompt("Ingrese su nombre:");
+        
+        // Solicitar al usuario que ingrese su peso en kg
+        var peso = parseFloat(prompt("Ingrese su peso en kg:"));
+        
+        // Solicitar al usuario que ingrese su altura en metros
+        var altura = parseFloat(prompt("Ingrese su altura en metros:"));
+        
+        // Calcular el IMC
+        var imc = peso / (altura * altura);
+        
+        // Clasificar el IMC
+        var clasificacion;
+        if (imc < 18.5) {
+            clasificacion = "bajo peso";
+        } else if (imc < 25) {
+            clasificacion = "peso normal";
+        } else if (imc < 30) {
+            clasificacion = "sobrepeso";
+        } else {
+            clasificacion = "obesidad";
+        }
+        
+        // Mostrar el resultado
+        var mensaje = nombre + " tiene " + imc.toFixed(2) + " de IMC y se clasifica como " + clasificacion + ".";
+        console.log(mensaje);
+        document.write("<p>" + mensaje + "</p>");
+    </script>
+
+    <button class="button" onclick="window.location.href='index.html'">Regresar a la Pagina Principal</button>
+    <button class="button" onclick="window.location.href='programa_calificaciones.html'">Programa de Calificaciones</button>
+</body>
+</html>
